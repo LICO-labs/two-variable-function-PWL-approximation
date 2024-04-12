@@ -134,3 +134,7 @@ Two examples of how to call this function are available on this file.
 ## Analysis
 Most tables analysing the numerical results from this heuristic and the state of the art solvers are computed with functions from file managing_benchmark_results.jl.
 The lines to do this analysis are the lines 1407-1421 from the same file.
+
+## Result files and produce figures of the solutions
+Result files of the experiments in [1] and [2] are available in folder "results".
+The solutions of the algorithm written in the result files can be displayed using function parse_and_plot_instance from file results/parse_and_plot_solutions.jl. More details in results/README.txt.
