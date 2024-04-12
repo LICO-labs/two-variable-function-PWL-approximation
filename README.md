@@ -37,13 +37,16 @@ Easy to use function that builds a piecewise linear function approximating funct
 
 ### Inputs:
 + **f** (generic function): function to piecewise linearize. Must take a single Vector{Float64} as argument.
-        Example:    f(x) = x[1]^2-x[2]^2
+        
+Example:    f(x) = x[1]^2-x[2]^2
 + **str_exprf** (String): describes the formula of function f with "X" as first variable and "Y" as second variable.
+
         Example:    "X*X-Y*Y".
 + **err** (LinA.ErrorType): describes the type of error wanted (absolute or relative) and its characteristics.
     	- Absolute(delta), delta>0 means piecewise linear function g constructed respect g(x) in [f(x)-delta,f(x)+delta]
     	- Relative(epsilon), 0<epsilon<100 means piecewise linear function g constructed respect g(x) in [f(x)*(1-epsilon/100),f(x)*(1+epsilon/100)]
     	WARNING: the Relative error type is only supported if function f is strictly positive.
+
         Examples:   Absolute(1.5), Relative(10.0) (for 10%).
 + **domain** (4-element Vector{Float64}): describes the variables domains. [A,B,C,D] means that X ∈ [A,B] and Y ∈ [C,D].
         If the domain is not a cartesian product, put as domain the smallest cartesian product containing the domain wanted and use the not_rectangular_domain option to describe the real domain.
