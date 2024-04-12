@@ -245,7 +245,7 @@ function parse_and_plot_instance(method_name, function_name, delta)
 
     if line_found
         # plot the piecewise linear function solution of the instance
-        p = plot(title = "solution with $method_name of instance ($function_name, $delta), $n_pieces pieces")
+        p = plot(title = "solution with $method_name of instance ($function_name, $delta), $n_pieces pieces", titlefontsize = 11)
         p = plot_pieces(T_set, p)
         print("\n save solution figure ''", name_figure, "'' in folder images/ \n\n" )
         if !("images" in readdir())
