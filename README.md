@@ -9,15 +9,12 @@ This document describes how to use the function PWL2D_heuristic to build a piece
 It is the implementation of the algorithm described in [1] and [2], with some further changes decreasing in average the number of pieces but increasing the computation time.
 
 [1]: Duguet, A., Ngueveu, S.U. (2022). Piecewise Linearization of Bivariate Nonlinear Functions: Minimizing the Number of Pieces Under a Bounded Approximation Error. In: Ljubić, I., Barahona, F., Dey, S.S., Mahjoub, A.R. (eds) Combinatorial Optimization. ISCO 2022. Lecture Notes in Computer Science, vol 13526. Springer, Cham. https://doi.org/10.1007/978-3-031-18530-4_9
-[2]: Aloïs Duguet. Approximation linéaire par morceaux de fonctions de deux variables avec erreur bornée pour la résolution de problèmes d'optimisation non linéaire mixte en nombres entiers. Autre [cs.OH]. Institut National Polytechnique de Toulouse - INPT, 2023. Français.
-
-## Path
-All paths in this document have root the julia/PWL_approx_2D_heuristic folder (/home/aduguet/Documents/doctorat/2dpwlb/codes/julia/PWL_approx_2D_heuristic on my laptop)
+[2]: Aloïs Duguet. Approximation linéaire par morceaux de fonctions de deux variables avec erreur bornée pour la résolution de problèmes d'optimisation non linéaire mixte en nombres entiers. Autre [cs.OH]. Institut National Polytechnique de Toulouse - INPT, 2023. Français. (in french, access [here](https://theses.hal.science/tel-04474172))
 
 ## Software
 Software needed:
 - julia version 1.6.2 (more recent version of julia possible with minor changes in libraries)
-- Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver), a free student version is available on their website
+- Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver), a free student version is available on the optimizer website
 
 Julia library needed:
 LinA, JuMP v0.21.10, Gurobi v0.9.14, LinearAlgebra, Plots v1.19.3, Clipper v0.6.1, ForwardDiff v0.10.21, IntervalArithmetic v0.18.2, AutoGrad v1.2.4, PolygonOps v0.1.1, TimerOutputs v0.5.12, StringEncodings v0.3.5
@@ -28,7 +25,7 @@ add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.
 
 
 ## Description of the main function
-function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rectangular_domain = false, num_func = "UNK", n_corridor = [1,1], DSR = 0.0625, LP_time_limit = 3600.0, firstv = "all", bounding_method = "eff", min_eff = 0.95, inclined_bounding = true, FDH = "mean_along_edge", eval_f_str = "PDTV", n_eval_sample = 200, save_solution = false, plot_pwl = false, plot_partial_pwl = false)
+```function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rectangular_domain = false, num_func = "UNK", n_corridor = [1,1], DSR = 0.0625, LP_time_limit = 3600.0, firstv = "all", bounding_method = "eff", min_eff = 0.95, inclined_bounding = true, FDH = "mean_along_edge", eval_f_str = "PDTV", n_eval_sample = 200, save_solution = false, plot_pwl = false, plot_partial_pwl = false)
     """ Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain.
         See [1] for more details.
 
@@ -111,21 +108,21 @@ function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rect
         Example:    [Any[[2.0, 3.61768018018, 8.21726025077892], [2.0, 2.0, 3.014892513924398], [6.853040540541, 2.0, 14.688938483459221]], 
         Any[[8.0, 4.0, 31.011094492736703], [6.304054054054, 4.0, 25.824988820772575], [3.578547297297, 3.091497747748, 11.118987553419728], [6.853040540541, 2.0, 13.47724901735819], [8.0, 2.0, 16.984585422997753]], 
         Any[[6.304054054054, 4.0, 24.262039374051042], [2.0, 4.0, 7.045823157835027], [2.0, 3.61768018018, 6.281183518195025], [3.578547297297, 3.091497747748, 11.543007842519028]]]
-    """
+    """```
 
 
 ## Pipeline
 To use function PWL2D_heuristic:
 - open a julia REPL in folder PWL_approx_2D_heuristic
-- enter 'include("main.jl")' to charge the functions
-- launch function with 'PWL2D_heuristic({INSERT ARGUMENTS})"
+- enter "include("main.jl")" to charge the functions
+- launch function with "PWL2D_heuristic({INSERT ARGUMENTS})"
 
 ## Example
-f(x) = x[1]^2-x[2]^2
+```f(x) = x[1]^2-x[2]^2
 str_exprf = "X*X-Y*Y"
 err = Absolute(1.5)
 domain = [0.5,7.5,0.5,3.5]
-PWL2D_heuristic(f,str_exprf,err,domain=domain)
+PWL2D_heuristic(f,str_exprf,err,domain=domain)```
 
 ## Benchmark
 function benchmark_flex_heuristic3 from file benchmark_heuristic.jl launches flex_heuristic_procedure on all instances of the benchmark of Rebennack and Kallrath (2014).
@@ -133,7 +130,7 @@ Two examples of how to call this function are available on this file.
 
 ## Analysis
 Most tables analysing the numerical results from this heuristic and the state of the art solvers are computed with functions from file managing_benchmark_results.jl.
-The lines to do this analysis are the lines 1407-1421 from the same file.
+See examples lines 1407-1421 from the same file.
 
 ## Result files and produce figures of the solutions
 Result files of the experiments in [1] and [2] are available in folder "results".
