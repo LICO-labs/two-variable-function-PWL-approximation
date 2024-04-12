@@ -33,8 +33,7 @@ add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.
 function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rectangular_domain = false, num_func = "UNK", n_corridor = [1,1], DSR = 0.0625, LP_time_limit = 3600.0, firstv = "all", bounding_method = "eff", min_eff = 0.95, inclined_bounding = true, FDH = "mean_along_edge", eval_f_str = "PDTV", n_eval_sample = 200, save_solution = false, plot_pwl = false, plot_partial_pwl = false)
 ```
 
-    Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain.
-    See [1] for more details.
+Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain. See [1] for more details.
 
 ### Inputs:
     **f** (generic function): function to piecewise linearize. Must take a single Vector{Float64} as argument.
