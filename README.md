@@ -166,3 +166,7 @@ See examples lines 1407-1421 from the same file.
 ## Result files and produce figures of the solutions
 Result files of the experiments in [1] and [2] are available in folder "results".
 The solutions of the algorithm written in the result files can be displayed using function parse_and_plot_instance from file results/parse_and_plot_solutions.jl. More details in results/README.txt.
+
+Examples:
+
+![Solution with method ProMA_Aire_95_dich of function L1 with delta equal to 1.5](results/improvement from thesis results/real_dichotomy/images/solution_ProMA_VaT_95_dich_L1_delta1.5.png)
