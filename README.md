@@ -169,4 +169,4 @@ The solutions of the algorithm written in the result files can be displayed usin
 
 Examples:
 
-![Solution with method ProMA_Aire_95_dich of function L1 with delta equal to 1.5](results/improvement from thesis results/real_dichotomy/images/solution_ProMA_VaT_95_dich_L1_delta1.5.png)
+![Solution with method ProMA_Aire_95_dich of function L1 with delta equal to 1.5](https://github.com/LICO-labs/two-variable-function-PWL-approximation/tree/main/results/improvement from thesis results/real_dichotomy/images/solution_ProMA_VaT_95_dich_L1_delta1.5.png)
