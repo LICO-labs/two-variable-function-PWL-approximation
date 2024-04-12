@@ -28,9 +28,11 @@ add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.
 
 
 ## Description of the main function
+
 ```
 function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rectangular_domain = false, num_func = "UNK", n_corridor = [1,1], DSR = 0.0625, LP_time_limit = 3600.0, firstv = "all", bounding_method = "eff", min_eff = 0.95, inclined_bounding = true, FDH = "mean_along_edge", eval_f_str = "PDTV", n_eval_sample = 200, save_solution = false, plot_pwl = false, plot_partial_pwl = false)
 ```
+
     Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain.
     See [1] for more details.
 
@@ -127,7 +129,8 @@ To use function PWL2D_heuristic:
 str_exprf = "X*X-Y*Y"
 err = Absolute(1.5)
 domain = [0.5,7.5,0.5,3.5]
-PWL2D_heuristic(f,str_exprf,err,domain=domain)```
+PWL2D_heuristic(f,str_exprf,err,domain=domain)
+```
 
 ## Benchmark
 function benchmark_flex_heuristic3 from file benchmark_heuristic.jl launches flex_heuristic_procedure on all instances of the benchmark of Rebennack and Kallrath (2014).
