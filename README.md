@@ -13,21 +13,22 @@ It is the implementation of the algorithm described in [1] and [2], with some fu
 
 ## Software
 Software needed:
-- julia version 1.6.2 (more recent version of julia possible with minor changes in libraries)
-- Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver), a free student version is available on the optimizer website
++ julia version 1.6.2 (more recent version of julia possible with minor changes in libraries)
++ Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver), a free student version is available on the optimizer website
 
-Julia library needed:
-LinA, JuMP v0.21.10, Gurobi v0.9.14, LinearAlgebra, Plots v1.19.3, Clipper v0.6.1, ForwardDiff v0.10.21, IntervalArithmetic v0.18.2, AutoGrad v1.2.4, PolygonOps v0.1.1, TimerOutputs v0.5.12, StringEncodings v0.3.5
+Julia library needed: LinA, JuMP v0.21.10, Gurobi v0.9.14, LinearAlgebra, Plots v1.19.3, Clipper v0.6.1, ForwardDiff v0.10.21, IntervalArithmetic v0.18.2, AutoGrad v1.2.4, PolygonOps v0.1.1, TimerOutputs v0.5.12, StringEncodings v0.3.5
+
 Install those libraries with:
-]
+
+```]
 add https://github.com/LICO-labs/LinA.jl.git
-add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.2 AutoGrad PolygonOps GLPK Cbc AmplNLWriter Couenne_jll AngleBetweenVectors Polyhedra TimerOutputs StringEncodings
+add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.2 AutoGrad PolygonOps GLPK Cbc AmplNLWriter Couenne_jll AngleBetweenVectors Polyhedra TimerOutputs StringEncodings```
 
 
 ## Description of the main function
 ```function PWL2D_heuristic(f, str_exprf, err, domain; LP_SOLVER = "GLPK", not_rectangular_domain = false, num_func = "UNK", n_corridor = [1,1], DSR = 0.0625, LP_time_limit = 3600.0, firstv = "all", bounding_method = "eff", min_eff = 0.95, inclined_bounding = true, FDH = "mean_along_edge", eval_f_str = "PDTV", n_eval_sample = 200, save_solution = false, plot_pwl = false, plot_partial_pwl = false)
-    """ Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain.
-        See [1] for more details.
+    Easy to use function that builds a piecewise linear function approximating function f of two variables with approximation error err on domain domain.
+    See [1] for more details.
 
     Inputs:
     f (generic function): function to piecewise linearize. Must take a single Vector{Float64} as argument.
@@ -108,7 +109,7 @@ add JuMP Gurobi LinearAlgebra Plots Clipper ForwardDiff IntervalArithmetic@0.18.
         Example:    [Any[[2.0, 3.61768018018, 8.21726025077892], [2.0, 2.0, 3.014892513924398], [6.853040540541, 2.0, 14.688938483459221]], 
         Any[[8.0, 4.0, 31.011094492736703], [6.304054054054, 4.0, 25.824988820772575], [3.578547297297, 3.091497747748, 11.118987553419728], [6.853040540541, 2.0, 13.47724901735819], [8.0, 2.0, 16.984585422997753]], 
         Any[[6.304054054054, 4.0, 24.262039374051042], [2.0, 4.0, 7.045823157835027], [2.0, 3.61768018018, 6.281183518195025], [3.578547297297, 3.091497747748, 11.543007842519028]]]
-    """```
+    ```
 
 
 ## Pipeline
