@@ -9,6 +9,7 @@ This document describes how to use the function PWL2D_heuristic to build a piece
 It is the implementation of the algorithm described in [1] and [2], with some further changes decreasing in average the number of pieces but increasing the computation time.
 
 [1]: Duguet, A., Ngueveu, S.U. (2022). Piecewise Linearization of Bivariate Nonlinear Functions: Minimizing the Number of Pieces Under a Bounded Approximation Error. In: Ljubić, I., Barahona, F., Dey, S.S., Mahjoub, A.R. (eds) Combinatorial Optimization. ISCO 2022. Lecture Notes in Computer Science, vol 13526. Springer, Cham. https://doi.org/10.1007/978-3-031-18530-4_9
+
 [2]: Aloïs Duguet. Approximation linéaire par morceaux de fonctions de deux variables avec erreur bornée pour la résolution de problèmes d'optimisation non linéaire mixte en nombres entiers. Autre [cs.OH]. Institut National Polytechnique de Toulouse - INPT, 2023. Français. (in french, access [here](https://theses.hal.science/tel-04474172))
 
 ## Software
