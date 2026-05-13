@@ -15,7 +15,7 @@ It is the implementation of the algorithm described in [1] and [2], with some fu
 ## Software
 Software needed:
 + julia version 1.6.2 (more recent version of julia possible with minor changes in libraries)
-+ Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver), a free student version is available on the optimizer website
++ Gurobi as LP solver (others may be used with a slight change in the code if a julia library link them to the JuMP library; line "model = Model(Gurobi.optimizer)" of functions feasibility_model2 and feasibility_model_1D need to be adapted to your LP solver)
 
 Julia library needed: LinA, JuMP v0.21.10, Gurobi v0.9.14, LinearAlgebra, Plots v1.19.3, Clipper v0.6.1, ForwardDiff v0.10.21, IntervalArithmetic v0.18.2, AutoGrad v1.2.4, PolygonOps v0.1.1, TimerOutputs v0.5.12, StringEncodings v0.3.5
 
